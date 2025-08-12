@@ -135,30 +135,26 @@ class BadgeService {
       ${octocatIcon}
       
       <!-- Left text (metric name) -->
-      <text x="${32}" y="${height / 2}" 
+      <text x="${leftTextX}" y="${textY}" 
             text-anchor="start" 
             dominant-baseline="central" 
-            fill="${colorScheme.textColor}" 
+            fill="${leftTextColor}" 
             font-family="${styleConfig.fontFamily}" 
             font-size="${styleConfig.fontSize}px"
-            ${styleConfig.fontWeight ? `font-weight="${styleConfig.fontWeight}"` : ''}
-            ${theme === 'dark' ? 'text-shadow="0 0 3px rgba(0,255,127,0.3)"' : ''}>
-        ${leftText}
+            ${theme === 'dark' && glowIntensity > 0 ? `style="text-shadow: 0 0 ${glowIntensity}px rgba(0,255,127,0.3)"` : ''}>
+        ${metric.charAt(0).toUpperCase() + metric.slice(1)}
       </text>
       
       <!-- Right text (rank) -->
-      <text x="${leftWidth + 45}" y="${height / 2}" 
+      <text x="${rightTextX}" y="${textY}" 
             text-anchor="start" 
             dominant-baseline="central" 
-            fill="${theme === 'dark' ? '#ffffff' : '#ffffff'}" 
+            fill="${rightTextColor}" 
             font-family="${styleConfig.fontFamily}" 
             font-size="${styleConfig.fontSize}px"
-            ${styleConfig.fontWeight ? `font-weight="${styleConfig.fontWeight}"` : ''}
-            ${theme === 'dark' ? 'text-shadow="0 0 5px rgba(0,0,0,0.8)"' : ''}>
-        ${rightText}
-      </text>
-      
-      <!-- Subtle highlight for depth -->
+            ${theme === 'dark' && glowIntensity > 0 ? `style="text-shadow: 0 0 ${glowIntensity * 1.5}px rgba(0,0,0,0.8)"` : ''}>
+        ${rank.description}
+      </text>      <!-- Subtle highlight for depth -->
       <rect x="2" y="2" width="${totalWidth - 4}" height="1" 
             fill="rgba(255,255,255,0.1)" 
             rx="${styleConfig.borderRadius}" 
