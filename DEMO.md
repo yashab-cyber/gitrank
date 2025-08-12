@@ -6,27 +6,60 @@ Welcome to the GitRank Live demo! This showcase demonstrates real-time GitHub ra
 
 ## 🏆 Live Badge Examples
 
+> 🔴 **Service Status**: [Check Health](https://gitrank.zehrasec.com/health) | 🌐 **API Base**: https://gitrank.zehrasec.com
+
 ### 🌟 Stars Ranking
 ![Stars Rank](https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=stars&style=for-the-badge)
+
+**Direct URL**: https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=stars&style=for-the-badge
 
 ### 👥 Followers Ranking  
 ![Followers Rank](https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=followers&style=for-the-badge)
 
+**Direct URL**: https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=followers&style=for-the-badge
+
 ### 🍴 Forks Ranking
 ![Forks Rank](https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=forks&style=for-the-badge)
 
+**Direct URL**: https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=forks&style=for-the-badge
+
 ### 📝 Commits Ranking
 ![Commits Rank](https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=commits&style=for-the-badge)
+
+**Direct URL**: https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=commits&style=for-the-badge
+
+---
+
+## 🔍 **Troubleshooting Badge Loading**
+
+### 📊 **Quick Service Test**
+- ✅ **API Health**: [Check Status](https://gitrank.zehrasec.com/health)
+- ✅ **Raw Data**: [View JSON](https://gitrank.zehrasec.com/api/rank?user=yashab-cyber&metric=stars)
+- ✅ **Direct Badge**: [View SVG](https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=stars&style=flat)
+
+### 🛠️ **Current Rankings (Live Data)**
+Based on API response:
+- **⭐ Stars**: 46 (Top 50% - Intermediate)
+- **👥 Followers**: 12 
+- **🍴 Forks**: 16
+- **📝 Commits**: 463
+
+### 💡 **If Badges Don't Load**
+1. **Check Network**: Ensure you have internet connectivity
+2. **Check CORS**: Some tools may block cross-origin image requests
+3. **Try Direct Links**: Click the "Direct URL" links above
+4. **Browser Cache**: Try refreshing or clearing cache
+5. **Alternative Viewer**: Test in different markdown viewers
 
 ---
 
 ## 🎨 Badge Style Variations
 
-### Flat Style (Default)
+### 🔧 Debug: Simple Flat Style
 ![Flat Stars](https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=stars&style=flat)
 ![Flat Followers](https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=followers&style=flat)
 
-### Flat Square
+### Flat Square Style
 ![Flat Square Stars](https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=stars&style=flat-square)
 ![Flat Square Followers](https://gitrank.zehrasec.com/api/badge?user=yashab-cyber&metric=followers&style=flat-square)
 
