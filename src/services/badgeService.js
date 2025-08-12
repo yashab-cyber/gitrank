@@ -92,6 +92,14 @@ class BadgeService {
     // Create glowing effect for dark theme
     const glowEffect = theme === 'dark' ? this.createGlowEffect(rightBgColor) : '';
     
+    // Text positioning
+    const leftTextX = 32; // After icon space
+    const rightTextX = leftWidth + 45; // After left section + padding
+    const textY = height / 2;
+    const leftTextColor = colorScheme.textColor;
+    const rightTextColor = theme === 'dark' ? '#ffffff' : '#24292f';
+    const glowIntensity = 3;
+    
     const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="${height}" viewBox="0 0 ${totalWidth} ${height}">
       <defs>
