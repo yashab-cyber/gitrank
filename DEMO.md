@@ -59,7 +59,7 @@ Welcome to the GitRank Live demo! This showcase demonstrates real-time GitHub ra
 
 #### 📱 Connect with Yashab Alam
 - 💻 **GitHub**: [@yashab-cyber](https://github.com/yashab-cyber)
-- 📸 **Instagram**: [@yashab.alam](https://www.instagram.com/yashab.alam)  
+- 📸 **Instagram**: [@yashab.alam](https://www.instagram.com/yashab.alam)
 - 💼 **LinkedIn**: [Yashab Alam](https://www.linkedin.com/in/yashab-alam)
 - 🌐 **Company**: [ZehraSec](https://www.zehrasec.com)
 
@@ -145,7 +145,7 @@ curl "https://gitrank.zehrasec.com/api/stats/yashab-cyber"
 
 ## 🎯 Use Cases
 
-### 👨‍💻 Personal Profile README
+### 👨💻 Personal Profile README
 ```markdown
 ## 🏆 My GitHub Rankings
 
