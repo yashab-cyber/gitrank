@@ -1,0 +1,41 @@
+name: Update Contributors
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-contributors:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Update Contributors
+      uses: akhilmhdh/contributors-readme-action@v2.3.6
+      with:
+        file: 'CONTRIBUTORS.md'
+        contributor_list: 'CONTRIBUTORS.md'
+        readme_path: 'CONTRIBUTORS.md'
+        columns_per_row: 6
+        collaborators: 'true'
+        bots: 'false'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add CONTRIBUTORS.md
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "📝 Update contributors list [skip ci]"
+          git push
+        fi

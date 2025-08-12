@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/yashab-cyber/gitrank/discussions
+    about: Ask questions and discuss ideas with the community
+  - name: 📧 Email Support
+    url: mailto:yashabalam707@gmail.com
+    about: For private or sensitive issues, contact the developer directly
+  - name: 💰 Support Development
+    url: https://github.com/yashab-cyber/gitrank/blob/main/DONATE.md
+    about: Support GitRank Live development through donations
+  - name: 🌐 ZehraSec Website
+    url: https://www.zehrasec.com
+    about: Visit the official ZehraSec website
