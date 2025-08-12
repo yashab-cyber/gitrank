@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitRank Local Demo - Badge Testing</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #0d1117;
+            color: #f0f6fc;
+            line-height: 1.6;
+        }
+        .container {
+            background: #161b22;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            border: 1px solid #30363d;
+        }
+        h1, h2, h3 {
+            color: #00ff7f;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+        .badge-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #21262d;
+        }
+        .badge-item {
+            margin: 10px 0;
+            padding: 15px;
+            background: #21262d;
+            border-radius: 6px;
+        }
+        .badge-item h4 {
+            margin: 0 0 10px 0;
+            color: #7c3aed;
+        }
+        .url-display {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background: #0d1117;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #7d8590;
+            word-break: break-all;
+            margin: 5px 0;
+        }
+        .status-section {
+            background: linear-gradient(45deg, #1a5d1a, #0d3d0d);
+            border: 1px solid #2d5d2d;
+        }
+        .test-section {
+            background: linear-gradient(45deg, #1a1d5d, #0d0d3d);
+            border: 1px solid #2d2d5d;
+        }
+        .error {
+            color: #ff6b6b;
+            background: #2d1a1a;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 4px solid #ff6b6b;
+        }
+        .success {
+            color: #51cf66;
+            background: #1a2d1a;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 4px solid #51cf66;
+        }
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .loading {
+            color: #ffd43b;
+        }
+        img {
+            margin: 5px;
+            vertical-align: middle;
+        }
+        .refresh-btn {
+            background: #238636;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .refresh-btn:hover {
+            background: #2ea043;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 GitRank Local Demo - Badge Testing</h1>
+        <p>Local server running on <strong>http://localhost:3000</strong></p>
+        
+        <button class="refresh-btn" onclick="location.reload()">🔄 Refresh Page</button>
+        <button class="refresh-btn" onclick="testBadgeDirectly()">🧪 Test Badge Directly</button>
+        
+        <div class="status-section container">
+            <h2>🟢 Server Status</h2>
+            <div id="server-status" class="loading">⏳ Checking server status...</div>
+            <div class="badge-item">
+                <p><strong>Health Check:</strong> <a href="http://localhost:3000/health" target="_blank">http://localhost:3000/health</a></p>
+                <p><strong>API Info:</strong> <a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a></p>
+                <p><strong>Sample Data:</strong> <a href="http://localhost:3000/api/rank?user=yashab-cyber&metric=stars" target="_blank">View JSON Data</a></p>
+                <div id="badge-test-result"></div>
+            </div>
+        </div>
+
+        <div class="test-section container">
+            <h2>🏆 Live Badge Tests</h2>
+            
+            <div class="badge-section">
+                <h3>🌟 User: yashab-cyber</h3>
+                
+                <div class="badge-item">
+                    <h4>Stars Ranking (for-the-badge style)</h4>
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&style=for-the-badge" alt="Stars Badge" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <div class="url-display">http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&style=for-the-badge</div>
+                </div>
+
+                <div class="badge-item">
+                    <h4>Followers Ranking (for-the-badge style)</h4>
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=followers&style=for-the-badge" alt="Followers Badge" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <div class="url-display">http://localhost:3000/api/badge?user=yashab-cyber&metric=followers&style=for-the-badge</div>
+                </div>
+
+                <div class="badge-item">
+                    <h4>Forks Ranking (for-the-badge style)</h4>
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=forks&style=for-the-badge" alt="Forks Badge" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <div class="url-display">http://localhost:3000/api/badge?user=yashab-cyber&metric=forks&style=for-the-badge</div>
+                </div>
+
+                <div class="badge-item">
+                    <h4>Commits Ranking (for-the-badge style)</h4>
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=commits&style=for-the-badge" alt="Commits Badge" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <div class="url-display">http://localhost:3000/api/badge?user=yashab-cyber&metric=commits&style=for-the-badge</div>
+                </div>
+            </div>
+
+            <div class="badge-section">
+                <h3>🎨 Different Styles</h3>
+                
+                <div class="badge-item">
+                    <h4>Flat Style</h4>
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&style=flat" alt="Flat Stars" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=followers&style=flat" alt="Flat Followers" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <div class="url-display">style=flat</div>
+                </div>
+
+                <div class="badge-item">
+                    <h4>Flat Square Style</h4>
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&style=flat-square" alt="Flat Square Stars" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=followers&style=flat-square" alt="Flat Square Followers" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <div class="url-display">style=flat-square</div>
+                </div>
+
+                <div class="badge-item">
+                    <h4>Plastic Style</h4>
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&style=plastic" alt="Plastic Stars" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=followers&style=plastic" alt="Plastic Followers" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <div class="url-display">style=plastic</div>
+                </div>
+            </div>
+
+            <div class="badge-section">
+                <h3>🌓 Different Themes</h3>
+                
+                <div class="badge-item">
+                    <h4>Dark Theme (Default)</h4>
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&theme=dark&style=for-the-badge" alt="Dark Stars" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=followers&theme=dark&style=for-the-badge" alt="Dark Followers" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <div class="url-display">theme=dark</div>
+                </div>
+
+                <div class="badge-item">
+                    <h4>Light Theme</h4>
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&theme=light&style=for-the-badge" alt="Light Stars" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <img src="http://localhost:3000/api/badge?user=yashab-cyber&metric=followers&theme=light&style=for-the-badge" alt="Light Followers" onerror="this.parentElement.innerHTML += '<div class=error>❌ Badge failed to load</div>'">
+                    <div class="url-display">theme=light</div>
+                </div>
+            </div>
+
+            <div class="badge-section">
+                <h3>🧪 Test Different Users</h3>
+                
+                <div class="badge-item">
+                    <h4>Popular GitHub Users</h4>
+                    <img src="http://localhost:3000/api/badge?user=octocat&metric=followers&style=for-the-badge" alt="Octocat" onerror="this.parentElement.innerHTML += '<div class=error>❌ Octocat badge failed</div>'">
+                    <img src="http://localhost:3000/api/badge?user=torvalds&metric=stars&style=for-the-badge" alt="Torvalds" onerror="this.parentElement.innerHTML += '<div class=error>❌ Torvalds badge failed</div>'">
+                    <div class="url-display">Testing with octocat and torvalds</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>🛠️ Debug Information</h2>
+            <div class="badge-item">
+                <h4>Direct Badge URLs (Right-click → Copy Link)</h4>
+                <ul>
+                    <li><a href="http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&style=flat" target="_blank">Stars (Flat)</a></li>
+                    <li><a href="http://localhost:3000/api/badge?user=yashab-cyber&metric=followers&style=for-the-badge" target="_blank">Followers (Badge)</a></li>
+                    <li><a href="http://localhost:3000/api/badge?user=octocat&metric=followers&style=flat-square" target="_blank">Octocat Followers (Flat Square)</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check server status
+        function checkServerStatus() {
+            const statusDiv = document.getElementById('server-status');
+            
+            fetch('http://localhost:3000/health')
+                .then(response => response.json())
+                .then(data => {
+                    statusDiv.innerHTML = '<div class="success">✅ Server is running! Status: ' + data.status + '</div>';
+                })
+                .catch(error => {
+                    statusDiv.innerHTML = '<div class="error">❌ Server not reachable. Error: ' + error.message + '</div>';
+                });
+        }
+
+        // Test badge generation directly
+        function testBadgeDirectly() {
+            const testDiv = document.getElementById('badge-test-result');
+            testDiv.innerHTML = '<div class="loading">🧪 Testing badge generation...</div>';
+            
+            const testUrl = 'http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&style=flat';
+            
+            // Test with fetch to see if we get a response
+            fetch(testUrl)
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    } else {
+                        throw new Error('HTTP ' + response.status + ': ' + response.statusText);
+                    }
+                })
+                .then(svgContent => {
+                    testDiv.innerHTML = '<div class="success">✅ Badge generated successfully! Length: ' + svgContent.length + ' chars</div>' +
+                                      '<details><summary>View SVG Source</summary><pre>' + 
+                                      svgContent.substring(0, 300) + '...</pre></details>';
+                })
+                .catch(error => {
+                    testDiv.innerHTML = '<div class="error">❌ Badge generation failed: ' + error.message + '</div>';
+                });
+        }
+
+        // Check status when page loads
+        window.addEventListener('load', function() {
+            checkServerStatus();
+            setTimeout(testBadgeDirectly, 1000); // Test badge generation after 1 second
+        });
+        
+        // Add loading indicators and error handling
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.addEventListener('load', function() {
+                console.log('✅ Badge loaded successfully:', this.src);
+            });
+            img.addEventListener('error', function() {
+                console.error('❌ Badge failed to load:', this.src);
+                // Add visual indicator
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error';
+                errorDiv.innerHTML = '❌ Badge failed to load: ' + this.alt;
+                this.parentElement.appendChild(errorDiv);
+            });
+        });
+
+        // CORS and mixed content debugging
+        console.log('Page loaded via:', window.location.protocol);
+        console.log('Attempting to load badges from: http://localhost:3000');
+    </script>
+</body>
+</html>

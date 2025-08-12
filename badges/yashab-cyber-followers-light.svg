@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="177.05" height="28" viewBox="0 0 177.05 28">
+      <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#e5e5e5;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="leftGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#f6f8fa;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#dddfe1;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="rightGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#8250df;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#6840b2;stop-opacity:1" />
+        </linearGradient>
+        
+        
+      </defs>
+      
+      <!-- Main background with rounded corners -->
+      <rect x="0" y="0" width="177.05" height="28" 
+            fill="url(#bgGradient)" 
+            rx="6" 
+            ry="6"
+            />
+      
+      <!-- Left section (metric + icon) -->
+      <rect x="2" y="2" width="94.45" height="24" 
+            fill="url(#leftGradient)" 
+            rx="4" 
+            ry="4"/>
+      
+      <!-- Right section (rank) -->
+      <rect x="96.45" y="2" width="78.60000000000001" height="24" 
+            fill="url(#rightGradient)" 
+            rx="4" 
+            ry="4"
+            />
+      
+      <!-- Octocat Icon -->
+      
+      <g transform="translate(8, 6)">
+        <path fill="#0969da" d="M8 0C3.52 0 0 3.52 0 8c0 3.52 2.32 6.48 5.52 7.52.0.48.0.08.0.56-.0.24.0.56-.0.48v-.1.6c-.2.32 .0.48-.2.72-.1.12-.2.72-.1.12-.0.32-.0.88-.0.88-.1.12-.0.88-.1.12-.0.8.0.08-.0.56.0.08-.0.56.0.88.0.08 1.36.0.88 1.36.0.88.0.8 1.36 2.08.1.04 2.48.0.8-.0.24 0.32-.1.04 0.56-.1.28-2.08-.0.24-4.08-.1.04-4.08 0-.1.04 0.32-.1.84 0.88-.2.48-.0.08-.0.24-.0.48-.1.12 .0.08-.2.4 0 0 .0.8-.0.24 2.48.0.88.0.72-.0.24 1.52-.0.32 2.32-.0.32s.1.6 .0.08 2.32 .0.32c1.68-.1.12 2.48-.0.88 2.48-.0.88.0.56 1.28 .0.24 2.16 .0.08 2.4.0.56.0.72 .0.88 1.52 .0.88 2.48 0 3.52-.2.16 4.32-.4.24 4.56.0.32.0.32 .0.72.0.88 .0.72 1.68v2.48c0 .0.24 .0.08 .0.56 .0.56 .0.48C13.68 14.48 16 11.52 16 8c0-.4.48-.3.52-8-8-8z"/>
+      </g>
+    
+      
+      <!-- Left text (metric name) -->
+      <text x="32" y="14" 
+            text-anchor="start" 
+            dominant-baseline="central" 
+            fill="#24292f" 
+            font-family="Consolas,Monaco,"Ubuntu Mono",monospace" 
+            font-size="11px"
+            >
+        Followers
+      </text>
+      
+      <!-- Right text (rank) -->
+      <text x="99.45" y="14" 
+            text-anchor="start" 
+            dominant-baseline="central" 
+            fill="#24292f" 
+            font-family="Consolas,Monaco,"Ubuntu Mono",monospace" 
+            font-size="11px"
+            >
+        Top 50%
+      </text>      <!-- Subtle highlight for depth -->
+      <rect x="2" y="2" width="173.05" height="1" 
+            fill="rgba(255,255,255,0.1)" 
+            rx="4" 
+            ry="4"/>
+            
+    </svg>

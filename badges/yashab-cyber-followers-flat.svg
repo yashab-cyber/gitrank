@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="177.05" height="20" viewBox="0 0 177.05 20">
+      <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#0b0f14;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="leftGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#161b22;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#13181e;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="rightGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#9370db;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#7559af;stop-opacity:1" />
+        </linearGradient>
+        
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+        <feMerge> 
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/> 
+        </feMerge>
+      </filter>
+    
+        
+      </defs>
+      
+      <!-- Main background with rounded corners -->
+      <rect x="0" y="0" width="177.05" height="20" 
+            fill="url(#bgGradient)" 
+            rx="5" 
+            ry="5"
+            stroke="#00ff7f" stroke-width="0.5" opacity="0.8"/>
+      
+      <!-- Left section (metric + icon) -->
+      <rect x="2" y="2" width="94.45" height="16" 
+            fill="url(#leftGradient)" 
+            rx="3" 
+            ry="3"/>
+      
+      <!-- Right section (rank) -->
+      <rect x="96.45" y="2" width="78.60000000000001" height="16" 
+            fill="url(#rightGradient)" 
+            rx="3" 
+            ry="3"
+            filter="url(#glow)"/>
+      
+      <!-- Octocat Icon -->
+      
+      <g transform="translate(8, 3)">
+        <path fill="#7c3aed" d="M7 0C3.08 0 0 3.08 0 7c0 3.08 2.03 5.67 4.83 6.58.0.42.0.07.0.49000000000000005-.0.21.0.49000000000000005-.0.42v-.1.4000000000000001c-.2.03 .0.42-.2.3800000000000003-.0.9800000000000001-.2.3800000000000003-.0.9800000000000001-.0.28-.0.77-.0.77-.0.9800000000000001-.0.77-.0.9800000000000001-.0.7000000000000001.0.07-.0.49000000000000005.0.07-.0.49000000000000005.0.77.0.07 1.1900000000000002.0.77 1.1900000000000002.0.77.0.7000000000000001 1.1900000000000002 1.82.0.91 2.17.0.7000000000000001-.0.21 0.28-.0.91 0.49000000000000005-.1.12-1.82-.0.21-3.5700000000000003-.0.91-3.5700000000000003 0-.0.91 0.28-.1.61 0.77-.2.17-.0.07-.0.21-.0.42-.0.9800000000000001 .0.07-.2.1 0 0 .0.7000000000000001-.0.21 2.17.0.77.0.63-.0.21 1.33-.0.28 2.03-.0.28s.1.4000000000000001 .0.07 2.03 .0.28c1.47-.0.9800000000000001 2.17-.0.77 2.17-.0.77.0.49000000000000005 1.12 .0.21 1.8900000000000001 .0.07 2.1.0.49000000000000005.0.63 .0.77 1.33 .0.77 2.17 0 3.08-.1.8900000000000001 3.7800000000000002-.3.71 3.9899999999999998.0.28.0.28 .0.63.0.77 .0.63 1.47v2.17c0 .0.21 .0.07 .0.49000000000000005 .0.49000000000000005 .0.42C11.969999999999999 12.67 14 10.08 14 7c0-.3.9200000000000004-.3.08-7-7-7z"/>
+      </g>
+    
+      
+      <!-- Left text (metric name) -->
+      <text x="32" y="10" 
+            text-anchor="start" 
+            dominant-baseline="central" 
+            fill="#f0f6fc" 
+            font-family="Consolas,Monaco,"Ubuntu Mono",monospace" 
+            font-size="11px"
+            style="text-shadow: 0 0 3px rgba(0,255,127,0.3)">
+        Followers
+      </text>
+      
+      <!-- Right text (rank) -->
+      <text x="99.45" y="10" 
+            text-anchor="start" 
+            dominant-baseline="central" 
+            fill="#ffffff" 
+            font-family="Consolas,Monaco,"Ubuntu Mono",monospace" 
+            font-size="11px"
+            style="text-shadow: 0 0 4.5px rgba(0,0,0,0.8)">
+        Top 50%
+      </text>      <!-- Subtle highlight for depth -->
+      <rect x="2" y="2" width="173.05" height="1" 
+            fill="rgba(255,255,255,0.1)" 
+            rx="3" 
+            ry="3"/>
+            
+    </svg>

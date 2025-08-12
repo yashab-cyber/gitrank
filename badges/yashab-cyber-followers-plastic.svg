@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="165.5" height="18" viewBox="0 0 165.5 18">
+      <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#0b0f14;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="leftGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#161b22;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#13181e;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="rightGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#9370db;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#7559af;stop-opacity:1" />
+        </linearGradient>
+        
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+        <feMerge> 
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/> 
+        </feMerge>
+      </filter>
+    
+        
+      <filter id="plastic">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+        <feOffset dx="0" dy="1" result="offset"/>
+        <feFlood flood-color="#000000" flood-opacity="0.2"/>
+        <feComposite in2="offset" operator="in"/>
+        <feMerge>
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    
+      </defs>
+      
+      <!-- Main background with rounded corners -->
+      <rect x="0" y="0" width="165.5" height="18" 
+            fill="url(#bgGradient)" 
+            rx="6" 
+            ry="6"
+            stroke="#00ff7f" stroke-width="0.5" opacity="0.8"/>
+      
+      <!-- Left section (metric + icon) -->
+      <rect x="2" y="2" width="89.5" height="14" 
+            fill="url(#leftGradient)" 
+            rx="4" 
+            ry="4"/>
+      
+      <!-- Right section (rank) -->
+      <rect x="91.5" y="2" width="72" height="14" 
+            fill="url(#rightGradient)" 
+            rx="4" 
+            ry="4"
+            filter="url(#glow)"/>
+      
+      <!-- Octocat Icon -->
+      
+      <g transform="translate(8, 3)">
+        <path fill="#7c3aed" d="M6 0C2.64 0 0 2.64 0 6c0 2.64 1.7399999999999998 4.86 4.14 5.64.0.36.0.06.0.42000000000000004-.0.18.0.42000000000000004-.0.36v-.1.2000000000000002c-.1.7399999999999998 .0.36-.2.04-.0.8400000000000001-.2.04-.0.8400000000000001-.0.24-.0.66-.0.66-.0.8400000000000001-.0.66-.0.8400000000000001-.0.6000000000000001.0.06-.0.42000000000000004.0.06-.0.42000000000000004.0.66.0.06 1.02.0.66 1.02.0.66.0.6000000000000001 1.02 1.56.0.78 1.8599999999999999.0.6000000000000001-.0.18 0.24-.0.78 0.42000000000000004-.0.96-1.56-.0.18-3.06-.0.78-3.06 0-.0.78 0.24-.1.3800000000000001 0.66-.1.8599999999999999-.0.06-.0.18-.0.36-.0.8400000000000001 .0.06-.1.7999999999999998 0 0 .0.6000000000000001-.0.18 1.8599999999999999.0.66.0.54-.0.18 1.1400000000000001-.0.24 1.7399999999999998-.0.24s.1.2000000000000002 .0.06 1.7399999999999998 .0.24c1.26-.0.8400000000000001 1.8599999999999999-.0.66 1.8599999999999999-.0.66.0.42000000000000004 0.96 .0.18 1.62 .0.06 1.7999999999999998.0.42000000000000004.0.54 .0.66 1.1400000000000001 .0.66 1.8599999999999999 0 2.64-.1.62 3.24-.3.18 3.42.0.24.0.24 .0.54.0.66 .0.54 1.26v1.8599999999999999c0 .0.18 .0.06 .0.42000000000000004 .0.42000000000000004 .0.36C10.26 10.86 12 8.64 12 6c0-.3.3600000000000003-.2.64-6-6-6z"/>
+      </g>
+    
+      
+      <!-- Left text (metric name) -->
+      <text x="32" y="9" 
+            text-anchor="start" 
+            dominant-baseline="central" 
+            fill="#f0f6fc" 
+            font-family="Consolas,Monaco,"Ubuntu Mono",monospace" 
+            font-size="10px"
+            style="text-shadow: 0 0 3px rgba(0,255,127,0.3)">
+        Followers
+      </text>
+      
+      <!-- Right text (rank) -->
+      <text x="94.5" y="9" 
+            text-anchor="start" 
+            dominant-baseline="central" 
+            fill="#ffffff" 
+            font-family="Consolas,Monaco,"Ubuntu Mono",monospace" 
+            font-size="10px"
+            style="text-shadow: 0 0 4.5px rgba(0,0,0,0.8)">
+        Top 50%
+      </text>      <!-- Subtle highlight for depth -->
+      <rect x="2" y="2" width="161.5" height="1" 
+            fill="rgba(255,255,255,0.1)" 
+            rx="4" 
+            ry="4"/>
+            
+    </svg>

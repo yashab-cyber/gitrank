@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Badge Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: white;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #333;
+            border-radius: 8px;
+        }
+        img {
+            margin: 10px;
+            border: 1px solid #666;
+        }
+        .error {
+            color: #ff6666;
+            margin: 10px 0;
+        }
+        .success {
+            color: #66ff66;
+            margin: 10px 0;
+        }
+        pre {
+            background: #2a2a2a;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 GitRank Badge Loading Test</h1>
+    
+    <div id="status" class="test-section">
+        <h3>Server Status</h3>
+        <div id="server-check">Checking server...</div>
+    </div>
+
+    <div class="test-section">
+        <h3>Direct Badge Tests</h3>
+        
+        <h4>1. Basic Badge (yashab-cyber stars)</h4>
+        <img id="badge1" src="http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&style=flat" 
+             alt="Stars Badge" width="150" height="20">
+        <br>
+        <small>URL: http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&style=flat</small>
+        
+        <h4>2. For-the-badge Style</h4>
+        <img id="badge2" src="http://localhost:3000/api/badge?user=yashab-cyber&metric=followers&style=for-the-badge" 
+             alt="Followers Badge">
+        <br>
+        <small>URL: http://localhost:3000/api/badge?user=yashab-cyber&metric=followers&style=for-the-badge</small>
+
+        <h4>3. Octocat Test</h4>
+        <img id="badge3" src="http://localhost:3000/api/badge?user=octocat&metric=followers&style=flat-square" 
+             alt="Octocat Badge">
+        <br>
+        <small>URL: http://localhost:3000/api/badge?user=octocat&metric=followers&style=flat-square</small>
+        
+        <h4>4. Light Theme Test</h4>
+        <img id="badge4" src="http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&theme=light&style=for-the-badge" 
+             alt="Light Theme Badge">
+        <br>
+        <small>URL: ...&theme=light&style=for-the-badge</small>
+    </div>
+
+    <div class="test-section">
+        <h3>Raw SVG Test</h3>
+        <div id="svg-content">Loading SVG content...</div>
+    </div>
+
+    <div class="test-section">
+        <h3>Debug Information</h3>
+        <div id="debug-info"></div>
+    </div>
+
+    <script>
+        // Test server health
+        function checkServer() {
+            const statusDiv = document.getElementById('server-check');
+            
+            fetch('http://localhost:3000/health')
+                .then(response => response.json())
+                .then(data => {
+                    statusDiv.innerHTML = '<div class="success">✅ Server OK: ' + data.status + ' (Version: ' + data.version + ')</div>';
+                    testSVGContent();
+                })
+                .catch(error => {
+                    statusDiv.innerHTML = '<div class="error">❌ Server Error: ' + error.message + '</div>';
+                });
+        }
+
+        // Test raw SVG content
+        function testSVGContent() {
+            const svgDiv = document.getElementById('svg-content');
+            
+            fetch('http://localhost:3000/api/badge?user=yashab-cyber&metric=stars&style=flat')
+                .then(response => response.text())
+                .then(svgText => {
+                    svgDiv.innerHTML = '<div class="success">✅ SVG received (' + svgText.length + ' chars)</div>' +
+                                     '<pre>' + svgText.substring(0, 400) + '...</pre>' +
+                                     '<div><strong>Raw SVG:</strong></div>' +
+                                     '<div>' + svgText + '</div>';
+                })
+                .catch(error => {
+                    svgDiv.innerHTML = '<div class="error">❌ SVG fetch failed: ' + error.message + '</div>';
+                });
+        }
+
+        // Debug image loading
+        function setupImageDebug() {
+            const images = document.querySelectorAll('img');
+            const debugDiv = document.getElementById('debug-info');
+            let debugInfo = [];
+
+            images.forEach((img, index) => {
+                const id = img.id || 'img' + (index + 1);
+                
+                img.onload = function() {
+                    debugInfo.push(`✅ ${id}: Loaded successfully (${this.naturalWidth}x${this.naturalHeight})`);
+                    updateDebug();
+                };
+                
+                img.onerror = function() {
+                    debugInfo.push(`❌ ${id}: Failed to load - ${this.src}`);
+                    updateDebug();
+                };
+                
+                // Set a timeout to detect hanging loads
+                setTimeout(() => {
+                    if (!img.complete) {
+                        debugInfo.push(`⏳ ${id}: Still loading after 5s...`);
+                        updateDebug();
+                    }
+                }, 5000);
+            });
+
+            function updateDebug() {
+                debugDiv.innerHTML = '<h4>Image Loading Status:</h4>' + 
+                                   debugInfo.map(info => '<div>' + info + '</div>').join('');
+            }
+
+            // Initial debug info
+            debugInfo.push('🔍 Protocol: ' + window.location.protocol);
+            debugInfo.push('🔍 Host: ' + window.location.host);
+            debugInfo.push('🔍 Images found: ' + images.length);
+            updateDebug();
+        }
+
+        // Start tests when page loads
+        window.addEventListener('load', function() {
+            checkServer();
+            setupImageDebug();
+            
+            // Also test after a delay
+            setTimeout(() => {
+                console.log('=== DELAYED TEST ===');
+                checkServer();
+            }, 3000);
+        });
+
+        // Console logging for debugging
+        console.log('Badge test page loaded');
+        console.log('Attempting to connect to: http://localhost:3000');
+    </script>
+</body>
+</html>
